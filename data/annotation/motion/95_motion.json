@@ -1,0 +1,187 @@
+[
+    {
+        "start_time": 0.0,
+        "end_time": 9.22,
+        "motion": 1.3936167603189296
+    },
+    {
+        "start_time": 9.22,
+        "end_time": 13.1,
+        "motion": 2.800742955311485
+    },
+    {
+        "start_time": 13.1,
+        "end_time": 16.85,
+        "motion": 0.5882287337021395
+    },
+    {
+        "start_time": 16.85,
+        "end_time": 18.6,
+        "motion": 3.5235700607299805
+    },
+    {
+        "start_time": 18.6,
+        "end_time": 21.23,
+        "motion": 2.1250384945481544
+    },
+    {
+        "start_time": 21.23,
+        "end_time": 23.31,
+        "motion": 2.2872540950775146
+    },
+    {
+        "start_time": 23.31,
+        "end_time": 28.7,
+        "motion": 0.7960905109265054
+    },
+    {
+        "start_time": 28.7,
+        "end_time": 32.62,
+        "motion": 0.2866257067008685
+    },
+    {
+        "start_time": 32.62,
+        "end_time": 41.08,
+        "motion": 3.4861445711619816
+    },
+    {
+        "start_time": 41.08,
+        "end_time": 54.51,
+        "motion": 2.880091429685135
+    },
+    {
+        "start_time": 54.51,
+        "end_time": 56.6,
+        "motion": 5.4978790283203125
+    },
+    {
+        "start_time": 56.6,
+        "end_time": 59.77,
+        "motion": 0.554964949687322
+    },
+    {
+        "start_time": 59.77,
+        "end_time": 63.56,
+        "motion": 2.577366890532247
+    },
+    {
+        "start_time": 63.56,
+        "end_time": 67.32,
+        "motion": 1.5946495069397821
+    },
+    {
+        "start_time": 67.32,
+        "end_time": 70.07,
+        "motion": 1.4307714058802679
+    },
+    {
+        "start_time": 70.07,
+        "end_time": 72.57,
+        "motion": 2.1242038792577285
+    },
+    {
+        "start_time": 72.57,
+        "end_time": 74.78,
+        "motion": 4.845827361712089
+    },
+    {
+        "start_time": 74.78,
+        "end_time": 78.04,
+        "motion": 31.42279928158491
+    },
+    {
+        "start_time": 78.04,
+        "end_time": 82.08,
+        "motion": 5.821406515021073
+    },
+    {
+        "start_time": 82.08,
+        "end_time": 83.58,
+        "motion": 12.507287979125977
+    },
+    {
+        "start_time": 83.58,
+        "end_time": 97.72,
+        "motion": 1.0243300640371424
+    },
+    {
+        "start_time": 97.72,
+        "end_time": 99.72,
+        "motion": 2.012937068939209
+    },
+    {
+        "start_time": 99.72,
+        "end_time": 110.11,
+        "motion": 0.8044563250608713
+    },
+    {
+        "start_time": 110.11,
+        "end_time": 112.24,
+        "motion": 2.071507215499878
+    },
+    {
+        "start_time": 112.24,
+        "end_time": 113.53,
+        "motion": 2.6335225105285645
+    },
+    {
+        "start_time": 113.53,
+        "end_time": 115.78,
+        "motion": 4.007130649995129
+    },
+    {
+        "start_time": 115.78,
+        "end_time": 117.03,
+        "motion": 9.286102294921875
+    },
+    {
+        "start_time": 117.03,
+        "end_time": 119.33,
+        "motion": 5.241626869548451
+    },
+    {
+        "start_time": 119.33,
+        "end_time": 122.75,
+        "motion": 0.8117853434365473
+    },
+    {
+        "start_time": 122.75,
+        "end_time": 125.96,
+        "motion": 0.12082832443870996
+    },
+    {
+        "start_time": 125.96,
+        "end_time": 132.47,
+        "motion": 1.2544715519874328
+    },
+    {
+        "start_time": 132.47,
+        "end_time": 142.6,
+        "motion": 0.669201061809706
+    },
+    {
+        "start_time": 142.6,
+        "end_time": 147.52,
+        "motion": 1.6659577035496378
+    },
+    {
+        "start_time": 147.52,
+        "end_time": 149.94,
+        "motion": 10.950776995274058
+    },
+    {
+        "start_time": 149.94,
+        "end_time": 153.49,
+        "motion": 6.068406034918392
+    },
+    {
+        "start_time": 153.49,
+        "end_time": 156.24,
+        "motion": 1.196089772077707
+    },
+    {
+        "start_time": 156.24,
+        "end_time": 157.99,
+        "motion": 3.838575601577759
+    }
+]

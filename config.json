@@ -1,0 +1,18 @@
+{
+    
+    "beat_annotation_path": "data/annotation/beat/",
+    "chord_annotation_path": "data/annotation/chord/",
+    "key_annotation_path": "data/annotation/key/",
+    "raw_video_path": "data/raw_video/",
+    "url_path": "data/url.txt",
+    "download_log_path": "logs/download_log.txt",
+    "beat_anno_log_path": "logs/beat_anno_log.txt",
+    "chord_anno_log_path": "logs/chord_anno_log.txt",
+    "key_anno_log_path": "logs/key_anno_log.txt",
+    "scene_anno_path": "data/annotation/scene/",
+    "caption_anno_path": "data/annotation/caption/",
+    "motion_anno_path": "data/annotation/motion/",
+    "motion_anno_log_path": "logs/motion_anno_log.txt",
+    "visual_anno_path": "data/annotation/visual/",
+    "visual_anno_log_path": "logs/visual_anno_log.txt"
+}

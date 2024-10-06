@@ -1,0 +1,32 @@
+[
+    {
+        "start_time": 0.0,
+        "end_time": 4.27,
+        "motion": 0.37916662721406846
+    },
+    {
+        "start_time": 4.27,
+        "end_time": 7.51,
+        "motion": 0.7443373559676495
+    },
+    {
+        "start_time": 7.51,
+        "end_time": 13.31,
+        "motion": 2.2218920193439304
+    },
+    {
+        "start_time": 13.31,
+        "end_time": 16.45,
+        "motion": 0.845894714619251
+    },
+    {
+        "start_time": 16.45,
+        "end_time": 22.96,
+        "motion": 3.611996065710009
+    },
+    {
+        "start_time": 22.96,
+        "end_time": 40.47,
+        "motion": 1.8720502139961286
+    }
+]

@@ -1,0 +1,307 @@
+[
+    {
+        "start_time": 0.0,
+        "end_time": 2.54,
+        "motion": 2.6173446675141654
+    },
+    {
+        "start_time": 2.54,
+        "end_time": 3.6,
+        "motion": 0.928935170173645
+    },
+    {
+        "start_time": 3.6,
+        "end_time": 9.24,
+        "motion": 0.36717910656616803
+    },
+    {
+        "start_time": 9.24,
+        "end_time": 14.55,
+        "motion": 0.7681255250606897
+    },
+    {
+        "start_time": 14.55,
+        "end_time": 16.58,
+        "motion": 0.4330709546299304
+    },
+    {
+        "start_time": 16.58,
+        "end_time": 18.28,
+        "motion": 1.0720946788787842
+    },
+    {
+        "start_time": 18.28,
+        "end_time": 22.42,
+        "motion": 0.6683602299147505
+    },
+    {
+        "start_time": 22.42,
+        "end_time": 28.5,
+        "motion": 0.4604141440365341
+    },
+    {
+        "start_time": 28.5,
+        "end_time": 30.13,
+        "motion": 0.48196935653686523
+    },
+    {
+        "start_time": 30.13,
+        "end_time": 32.3,
+        "motion": 0.9384699280445392
+    },
+    {
+        "start_time": 32.3,
+        "end_time": 34.4,
+        "motion": 0.34234881840768405
+    },
+    {
+        "start_time": 34.4,
+        "end_time": 35.5,
+        "motion": 6.0809712409973145
+    },
+    {
+        "start_time": 35.5,
+        "end_time": 36.7,
+        "motion": 5.215372562408447
+    },
+    {
+        "start_time": 36.7,
+        "end_time": 37.87,
+        "motion": 2.498589515686035
+    },
+    {
+        "start_time": 37.87,
+        "end_time": 39.07,
+        "motion": 4.264965534210205
+    },
+    {
+        "start_time": 39.07,
+        "end_time": 39.94,
+        "motion": 1.3159171342849731
+    },
+    {
+        "start_time": 39.94,
+        "end_time": 40.64,
+        "motion": 1.7617806196212769
+    },
+    {
+        "start_time": 40.64,
+        "end_time": 42.51,
+        "motion": 0.7321673253817218
+    },
+    {
+        "start_time": 42.51,
+        "end_time": 43.24,
+        "motion": 4.905587673187256
+    },
+    {
+        "start_time": 43.24,
+        "end_time": 44.94,
+        "motion": 0.37413233518600464
+    },
+    {
+        "start_time": 44.94,
+        "end_time": 45.51,
+        "motion": 4.627584934234619
+    },
+    {
+        "start_time": 45.51,
+        "end_time": 46.18,
+        "motion": 4.376113414764404
+    },
+    {
+        "start_time": 46.18,
+        "end_time": 47.85,
+        "motion": 0.7183083295822144
+    },
+    {
+        "start_time": 47.85,
+        "end_time": 49.55,
+        "motion": 6.516079425811768
+    },
+    {
+        "start_time": 49.55,
+        "end_time": 51.42,
+        "motion": 8.674972013993697
+    },
+    {
+        "start_time": 51.42,
+        "end_time": 52.65,
+        "motion": 0.3408397436141968
+    },
+    {
+        "start_time": 52.65,
+        "end_time": 54.45,
+        "motion": 5.0927008143011125
+    },
+    {
+        "start_time": 54.45,
+        "end_time": 55.76,
+        "motion": 2.4174280166625977
+    },
+    {
+        "start_time": 55.76,
+        "end_time": 57.02,
+        "motion": 4.544581413269043
+    },
+    {
+        "start_time": 57.02,
+        "end_time": 60.73,
+        "motion": 5.4023100320283355
+    },
+    {
+        "start_time": 60.73,
+        "end_time": 61.39,
+        "motion": 3.0874416828155518
+    },
+    {
+        "start_time": 61.39,
+        "end_time": 62.96,
+        "motion": 1.953000783920288
+    },
+    {
+        "start_time": 62.96,
+        "end_time": 64.53,
+        "motion": 0.7754901051521301
+    },
+    {
+        "start_time": 64.53,
+        "end_time": 68.54,
+        "motion": 0.858552373945713
+    },
+    {
+        "start_time": 68.54,
+        "end_time": 71.37,
+        "motion": 0.45587846744491395
+    },
+    {
+        "start_time": 71.37,
+        "end_time": 79.55,
+        "motion": 0.5370022345106212
+    },
+    {
+        "start_time": 79.55,
+        "end_time": 84.72,
+        "motion": 0.4090521669426522
+    },
+    {
+        "start_time": 84.72,
+        "end_time": 93.06,
+        "motion": 0.36088702094602776
+    },
+    {
+        "start_time": 93.06,
+        "end_time": 100.03,
+        "motion": 0.06567290360512941
+    },
+    {
+        "start_time": 100.03,
+        "end_time": 103.27,
+        "motion": 0.43247201915868777
+    },
+    {
+        "start_time": 103.27,
+        "end_time": 114.01,
+        "motion": 0.4226252785883844
+    },
+    {
+        "start_time": 114.01,
+        "end_time": 120.52,
+        "motion": 0.5426643748873288
+    },
+    {
+        "start_time": 120.52,
+        "end_time": 132.77,
+        "motion": 1.9913853728478872
+    },
+    {
+        "start_time": 132.77,
+        "end_time": 138.04,
+        "motion": 0.10694459578983344
+    },
+    {
+        "start_time": 138.04,
+        "end_time": 140.71,
+        "motion": 1.1623225800598724
+    },
+    {
+        "start_time": 140.71,
+        "end_time": 144.88,
+        "motion": 0.022425417127388138
+    },
+    {
+        "start_time": 144.88,
+        "end_time": 153.42,
+        "motion": 0.19936731837543786
+    },
+    {
+        "start_time": 153.42,
+        "end_time": 159.09,
+        "motion": 0.4278482876806742
+    },
+    {
+        "start_time": 159.09,
+        "end_time": 170.34,
+        "motion": 0.18103319102516868
+    },
+    {
+        "start_time": 170.34,
+        "end_time": 176.41,
+        "motion": 0.4486875219569022
+    },
+    {
+        "start_time": 176.41,
+        "end_time": 185.89,
+        "motion": 0.26376162841916084
+    },
+    {
+        "start_time": 185.89,
+        "end_time": 192.69,
+        "motion": 0.9227813446875845
+    },
+    {
+        "start_time": 192.69,
+        "end_time": 212.88,
+        "motion": 0.3623538447682523
+    },
+    {
+        "start_time": 212.88,
+        "end_time": 214.98,
+        "motion": 0.02718074604502467
+    },
+    {
+        "start_time": 214.98,
+        "end_time": 225.16,
+        "motion": 0.2099794821172464
+    },
+    {
+        "start_time": 225.16,
+        "end_time": 231.86,
+        "motion": 0.027432892948913216
+    },
+    {
+        "start_time": 231.86,
+        "end_time": 238.57,
+        "motion": 0.13046310562640429
+    },
+    {
+        "start_time": 238.57,
+        "end_time": 242.51,
+        "motion": 0.1252159040610669
+    },
+    {
+        "start_time": 242.51,
+        "end_time": 248.98,
+        "motion": 0.07533423746159922
+    },
+    {
+        "start_time": 248.98,
+        "end_time": 252.15,
+        "motion": 0.24558551609516144
+    },
+    {
+        "start_time": 252.15,
+        "end_time": 267.6,
+        "motion": 0.39117366374667845
+    }
+]
