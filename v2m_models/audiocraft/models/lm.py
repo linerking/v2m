@@ -397,6 +397,7 @@ class LMModel(StreamingModule):
                  prompt: tp.Optional[torch.Tensor] = None,
                  conditions: tp.List[ConditioningAttributes] = [],
                  num_samples: tp.Optional[int] = None,
+                 cfg: tp.Optional[CFGConditions] = None,
                  max_gen_len: int = 256,
                  use_sampling: bool = True,
                  temp: float = 1.0,
@@ -463,11 +464,19 @@ class LMModel(StreamingModule):
                     self.condition_provider(self.condition_provider.tokenize(conditions)),
                     self.condition_provider(self.condition_provider.tokenize(null_conditions)),
                 )
+                if cfg is not None:
+                    cfg_conditions[0]['description'] = cfg['description']
+
+                print(1)
+                print(cfg_conditions[0])
             else:
                 conditions = conditions + null_conditions
                 tokenized = self.condition_provider.tokenize(conditions)
                 cfg_conditions = self.condition_provider(tokenized)
-                print(cfg_conditions['description'])
+                if cfg is not None:
+                    cfg_conditions['description'] = cfg['description']
+                print(2)
+                print(cfg_conditions)
         else:
             cfg_conditions = {}
 

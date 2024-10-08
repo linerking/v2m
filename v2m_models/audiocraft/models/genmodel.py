@@ -148,7 +148,7 @@ class BaseGenModel(ABC):
             return self.generate_audio(tokens), tokens
         return self.generate_audio(tokens)
 
-    def generate(self, descriptions: tp.List[str], progress: bool = False, return_tokens: bool = False) \
+    def generate(self, descriptions: tp.List[str], progress: bool = False, return_tokens: bool = False,cfg_conditions = None) \
             -> tp.Union[torch.Tensor, tp.Tuple[torch.Tensor, torch.Tensor]]:
         """Generate samples conditioned on text.
 
@@ -157,9 +157,8 @@ class BaseGenModel(ABC):
             progress (bool, optional): Flag to display progress of the generation process. Defaults to False.
         """
         attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions, None)
-        print(attributes)
         assert prompt_tokens is None
-        tokens = self._generate_tokens(attributes, prompt_tokens, progress)
+        tokens = self._generate_tokens(attributes, prompt_tokens, progress,cfg_conditions=cfg_conditions)
         if return_tokens:
             return self.generate_audio(tokens), tokens
         return self.generate_audio(tokens)
@@ -222,6 +221,7 @@ class BaseGenModel(ABC):
         callback = None
         if progress:
             callback = _progress_callback
+
         if self.duration <= self.max_duration:
             # generate by sampling from LM, simple case.
             with self.autocast:

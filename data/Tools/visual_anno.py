@@ -27,6 +27,13 @@ def extract_visual_features(video_dir, scene_dir, output_dir, log_path, max_fram
             video_path = os.path.join(video_dir, video_file)
             scene_file = os.path.splitext(video_file)[0] + '.txt'
             scene_path = os.path.join(scene_dir, scene_file)
+            output_file = os.path.splitext(video_file)[0] + '_features.npy'
+            output_path = os.path.join(output_dir, output_file)
+
+            # 检查是否已经处理过这个视频
+            if os.path.exists(output_path):
+                print(f"视频 {video_file} 已经处理过，跳过。")
+                continue
 
             if not os.path.exists(scene_path):
                 raise FileNotFoundError(f"未找到对应的场景文件 {scene_file}")
@@ -46,8 +53,12 @@ def extract_visual_features(video_dir, scene_dir, output_dir, log_path, max_fram
                 total_frames = end_frame - start_frame + 1
                 if total_frames < max_frames:
                     frame_numbers = range(start_frame, end_frame + 1)
+                    pooled_output = np.zeros((10, 768))
+                    all_scene_features.append(pooled_output)
+                    logging.error(f"视频 {video_file} 场景 {start_time} - {end_time} 没有有效帧.帧数是{start_frame} - {end_frame}")
+                    continue
                 else:
-                    frame_numbers = np.linspace(start_frame, end_frame, max_frames, dtype=int)
+                    frame_numbers = np.linspace(start_frame, end_frame-1, max_frames, dtype=int)
                 
                 scene_images = []
                 
@@ -55,6 +66,8 @@ def extract_visual_features(video_dir, scene_dir, output_dir, log_path, max_fram
                     cap.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
                     ret, frame = cap.read()
                     if not ret:
+                        print(f"视频 {video_file} 场景 {start_time} - {end_time} 没有有效帧.帧数是{start_frame} - {end_frame}")
+                        print(frame_numbers)
                         raise RuntimeError(f"无法读取帧，视频：{video_file}，时间：{frame_number / fps}")
                     
                     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)

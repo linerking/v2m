@@ -50,8 +50,12 @@ class MusicGen(BaseGenModel):
     def __init__(self, name: str, compression_model: CompressionModel, lm: LMModel,
                  max_duration: tp.Optional[float] = None):
         super().__init__(name, compression_model, lm, max_duration)
-        self.set_generation_params(duration=15)  # default duration
-
+        self.set_generation_params(duration=15,cfg_coef=7)  # default duration
+    def get_cfg_conditions(self, descriptions: tp.List[str], melody_wavs: MelodyType=None):
+        attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions=descriptions, prompt=None, melody_wavs=melody_wavs)
+        tokenized = self.lm.condition_provider.tokenize(attributes)
+        cfg_conditions = self.lm.condition_provider(tokenized)
+        return cfg_conditions
     @staticmethod
     def get_pretrained(name: str = 'facebook/musicgen-melody', device=None):
         """Return pretrained model, we provide four models:
@@ -122,8 +126,8 @@ class MusicGen(BaseGenModel):
             'two_step_cfg': two_step_cfg,
         }
 
-    def generate_with_chroma(self, descriptions: tp.List[str], melody_wavs: MelodyType,
-                             melody_sample_rate: int, progress: bool = False,
+    def generate_with_chroma(self, descriptions: tp.List[str], melody_sample_rate: int,cfg_conditions = None,melody_wavs: MelodyType=None,
+                              progress: bool = False,
                              return_tokens: bool = False) -> tp.Union[torch.Tensor,
                                                                       tp.Tuple[torch.Tensor, torch.Tensor]]:
         """Generate samples conditioned on text and melody.
@@ -155,7 +159,7 @@ class MusicGen(BaseGenModel):
         attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions=descriptions, prompt=None,
                                                                         melody_wavs=melody_wavs)
         assert prompt_tokens is None
-        tokens = self._generate_tokens(attributes, prompt_tokens, progress)
+        tokens = self._generate_tokens(attributes, prompt_tokens, progress,cfg_conditions=cfg_conditions)
         if return_tokens:
             return self.generate_audio(tokens), tokens
         return self.generate_audio(tokens)
@@ -219,7 +223,7 @@ class MusicGen(BaseGenModel):
         return attributes, prompt_tokens
 
     def _generate_tokens(self, attributes: tp.List[ConditioningAttributes],
-                         prompt_tokens: tp.Optional[torch.Tensor], progress: bool = False) -> torch.Tensor:
+                         prompt_tokens: tp.Optional[torch.Tensor], progress: bool = False,cfg_conditions = None) -> torch.Tensor:
         """Generate discrete audio tokens given audio prompt and/or conditions.
 
         Args:
@@ -251,7 +255,7 @@ class MusicGen(BaseGenModel):
             callback = _progress_callback
 
         if self.duration <= self.max_duration:
-            # generate by sampling from LM, simple case
+            # generate by sampling from LM, simple case.
             with self.autocast:
                 gen_tokens = self.lm.generate(
                     prompt_tokens, attributes,
@@ -294,7 +298,7 @@ class MusicGen(BaseGenModel):
                         [None], [0.])
                 with self.autocast:
                     gen_tokens = self.lm.generate(
-                        prompt_tokens, attributes,
+                        prompt_tokens, attributes,cfg = cfg_conditions,
                         callback=callback, max_gen_len=max_gen_len, **self.generation_params)
                 if prompt_tokens is None:
                     all_tokens.append(gen_tokens)
