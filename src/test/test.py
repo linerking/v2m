@@ -5,11 +5,12 @@ from audiocraft.models.musicgen import MusicGen
 from audiocraft.data.audio import audio_write
 
 musicgen_model = MusicGen.get_pretrained("facebook/musicgen-melody")
-descriptions = ["a piano with C major and 60 bpm", "a guitar with C minor and 120 bpm"]
+descriptions = ["a piano with the key Bb minor and 60 bpm have chrods C#:maj D#:maj D#:min A#:min one by one", "a guitar with the key Bb minor and 120 bpm have chrods C#:maj D#:maj D#:min A#:min one by one"]
 
 # 调用 generate_with_chroma，不提供 melody_wavs
 cfg_conditions = musicgen_model.get_cfg_conditions(descriptions)
-musicgen_model.set_generation_params(duration=15,cfg_coef=10)
+print(cfg_conditions['description'][0].shape)
+musicgen_model.set_generation_params(duration=15,cfg_coef=10,two_step_cfg=True)
 audio = musicgen_model.generate(descriptions,cfg_conditions=cfg_conditions)
 for idx, one_wav in enumerate(audio):
     # Will save under {idx}.wav, with loudness normalization at -14 db LUFS.
