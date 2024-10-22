@@ -14,5 +14,7 @@
     "motion_anno_path": "data/annotation/motion/",
     "motion_anno_log_path": "logs/motion_anno_log.txt",
     "visual_anno_path": "data/annotation/visual/",
-    "visual_anno_log_path": "logs/visual_anno_log.txt"
+    "visual_anno_log_path": "logs/visual_anno_log.txt",
+    "caption_feature_anno_path": "data/annotation/caption_feature/",
+    "emotion_anno_path": "data/annotation/emotion/"
 }
