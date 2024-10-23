@@ -1,0 +1,5 @@
+A:maj, C#:min, C:min, D#:min, D:maj, D:min, E:min, F:min, G#:maj, N
+A#:maj, D:maj, D:min
+D:maj, D:min
+A#:maj, A:maj, D:maj, D:min, G:maj, N
+N

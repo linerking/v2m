@@ -1,0 +1,2 @@
+A:maj, A:min, B:maj, B:min, D:maj, N
+B:maj, N

@@ -1,0 +1,36 @@
+C:min, F:min, N
+A#:maj, C:maj, C:min, F:min, G#:maj, G:maj
+C:min, F:min, G#:maj, G:maj
+F:min
+C:maj, C:min, F:min
+C:maj, C:min
+C:maj, C:min
+C:maj, C:min
+C:maj, C:min
+C:min, N
+C:min, G:maj, N
+N
+C:min, N
+C:min
+C:min, F:min, G:maj
+C:min, G:maj
+C:min, F:min
+C:min, F:min, G:maj
+C:maj, G:maj
+B:min, D#:maj, F:min, G:maj
+B:maj, B:min, C:maj, G:maj
+C:min, G#:maj, G:maj, N
+C:min, D#:maj, F:min, G#:maj, G:maj, N
+C:min, G:maj, N
+C:min, D:maj, G:maj, N
+C:min, G:maj
+C:min, D:min, F:maj, G:maj
+C:min, D:min, F:maj, G:maj
+C:min, G:maj
+C:min, D#:maj, D:min, F:maj, F:min
+A#:maj, C:min, F:maj, G#:min, G:maj
+C:min, G#:maj
+C:min, G#:maj, G:maj, N
+G:maj, N
+N
+N

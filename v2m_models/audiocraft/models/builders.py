@@ -14,7 +14,7 @@ import typing as tp
 import omegaconf
 import torch
 
-import audiocraft
+from ... import audiocraft
 
 from .. import quantization as qt
 from ..modules.codebooks_patterns import (CoarseFirstPattern,

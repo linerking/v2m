@@ -1,0 +1,86 @@
+N
+A:maj, A:min, N
+A:maj, A:min
+A:maj, A:min
+A:min, G:maj
+G:maj, G:min
+G:maj, G:min, N
+G:maj
+G:maj, N
+A:maj, N
+A:maj
+A:maj
+A:maj, G:maj, N
+G:maj, G:min, N
+A:maj, A:min, G:maj
+A:maj, A:min
+A:maj, A:min
+A:maj
+A:maj, G:maj, G:min
+G:maj
+G:maj
+A:min, G:maj
+A:min
+A:min
+A:min, G:min
+G:min
+G:min
+A:min, G:min
+A:min
+A:min
+A:min
+A:min, G:min
+G:min
+G:min
+G:min
+A:min, G:min
+A:min, G:min
+G:min
+G:min
+A:min, C:maj, G:min
+A:min
+A:min, G:min
+G:min
+G:min
+G:min
+A:min, G:min
+A:min
+A:min, C:maj, G:maj, G:min
+G:min
+A:min, G:maj, G:min, N
+A:min
+A:min, G:maj, G:min
+G:min
+G:maj, G:min
+A:maj, A:min, G:maj
+A:maj, A:min
+A:maj, G:min
+G:min
+G:min
+A:min, G:min
+A:min
+A:min
+A:min, G:min
+G:maj, G:min
+A:min, G:maj, G:min
+A:min
+A:min, G:min
+G:min
+A:min, G:min
+A:min
+A:min
+A:min
+A:min, G:min
+G:min
+G:min
+A:min, G:min
+A:min
+A:min
+A:min, G:min
+A:maj, A:min, G:maj, G:min
+A:maj
+A:maj, A:min
+A:maj, A:min
+A:min, N
+N
+N

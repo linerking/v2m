@@ -1,0 +1,6 @@
+C#:maj, C#:min, N
+C#:min
+C#:maj, C#:min
+C#:min
+C#:maj, C#:min, N
+C#:min

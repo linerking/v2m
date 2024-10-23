@@ -1,0 +1,22 @@
+N
+N
+N
+N
+N
+B:maj, F:maj, N
+F:maj, N
+D:maj, N
+D:maj, G:maj
+D:maj, G:maj
+D:min, G:maj
+D:maj, D:min
+D:maj, G:maj
+A:min, G:maj
+A:min, C:maj, D:maj, G:maj, G:min
+A#:maj, D:maj
+A#:maj, B:maj, D:maj, G:maj
+B:maj
+B:maj, D:maj
+C:maj, D:maj
+D:maj, G:maj, N
+N

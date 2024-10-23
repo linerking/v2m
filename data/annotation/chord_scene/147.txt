@@ -1,0 +1,11 @@
+D#:min, N
+D#:min
+A:min, D#:min, D:maj, E:maj, E:min
+C#:maj, E:maj
+C#:maj, C#:min, N
+D:maj, D:min, N
+C#:min, D:min
+C#:min
+C#:maj, C#:min, D:min, N
+C#:maj, D:min, N
+N

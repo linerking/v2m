@@ -27,7 +27,7 @@ import os
 from omegaconf import OmegaConf, DictConfig
 import torch
 
-import audiocraft
+from v2m_models import audiocraft
 
 from . import builders
 from .encodec import CompressionModel

@@ -1,0 +1,33 @@
+N
+N
+B:maj, N
+B:maj, N
+F:maj, N
+F:maj
+A:maj, F:maj
+A:maj, C#:maj, F:maj
+F:maj
+F:maj, N
+N
+G:maj, N
+G:maj
+G:maj
+G:maj
+G:maj
+G:maj
+G:maj
+G:maj
+C:min, G:maj
+C:min, G:maj
+C:min
+C:min
+C:min
+C:min
+C:min, D#:maj, N
+A:maj, C:maj, C:min, N
+A:maj, B:maj, B:min, C:min, G#:min
+F:maj, F:min
+F:maj
+C#:maj, F:maj, F:min
+C#:maj, F:maj, F:min
+F:min, N

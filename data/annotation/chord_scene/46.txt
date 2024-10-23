@@ -1,0 +1,3 @@
+C:min, G:maj, G:min, N
+G:min, N
+N

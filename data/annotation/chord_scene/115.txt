@@ -1,0 +1,49 @@
+C#:min, N
+C#:min, N
+C#:min, N
+C#:min, N
+C#:min
+C#:min
+C#:maj, C#:min, N
+N
+N
+N
+N
+N
+N
+N
+N
+F#:maj, N
+F#:maj
+F#:maj, N
+C#:maj, N
+C#:maj
+C#:maj
+C#:maj, N
+N
+N
+N
+N
+N
+C#:maj, N
+C#:maj
+C#:maj
+C#:maj
+C#:maj, N
+C#:maj
+C#:maj, C#:min
+C#:min
+C#:maj, C#:min, N
+N
+C#:min, N
+C#:min, N
+C#:maj, C#:min
+C#:maj, C#:min
+C#:maj, C#:min, N
+C#:min, N
+N
+N
+C#:min, N
+C#:min
+C#:min, N
+N

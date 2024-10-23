@@ -16,5 +16,7 @@
     "visual_anno_path": "data/annotation/visual/",
     "visual_anno_log_path": "logs/visual_anno_log.txt",
     "caption_feature_anno_path": "data/annotation/caption_feature/",
-    "emotion_anno_path": "data/annotation/emotion/"
+    "emotion_anno_path": "data/annotation/emotion/",
+    "bpm_anno_path": "data/annotation/bpm/",
+    "chord_scene_anno_path": "data/annotation/chord_scene/"
 }

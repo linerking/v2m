@@ -1,0 +1,13 @@
+A:maj, C#:maj, N
+A:maj, G#:maj
+A:maj, C#:min
+C#:min
+C#:min, N
+A:maj, C#:maj, F:maj, N
+A:maj
+A#:maj, A:maj, F:maj
+F:maj
+C#:maj, F:maj, N
+C#:maj, F#:min
+F#:min, N
+N
