@@ -1,0 +1,22 @@
+[
+  {
+    "instrument": "synthesizer",
+    "probability": 0.26813390851020813
+  },
+  {
+    "instrument": "piano",
+    "probability": 0.1988331377506256
+  },
+  {
+    "instrument": "flute",
+    "probability": 0.11820623278617859
+  },
+  {
+    "instrument": "drums",
+    "probability": 0.11732080578804016
+  },
+  {
+    "instrument": "bass",
+    "probability": 0.0921158418059349
+  }
+]

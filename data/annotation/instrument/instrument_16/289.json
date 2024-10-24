@@ -1,0 +1,22 @@
+[
+  {
+    "instrument": "violin",
+    "probability": 0.20648935437202454
+  },
+  {
+    "instrument": "piano",
+    "probability": 0.18502093851566315
+  },
+  {
+    "instrument": "drums",
+    "probability": 0.1777181625366211
+  },
+  {
+    "instrument": "cello",
+    "probability": 0.17423471808433533
+  },
+  {
+    "instrument": "flute",
+    "probability": 0.15741819143295288
+  }
+]

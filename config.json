@@ -18,5 +18,7 @@
     "caption_feature_anno_path": "data/annotation/caption_feature/",
     "emotion_anno_path": "data/annotation/emotion/",
     "bpm_anno_path": "data/annotation/bpm/",
-    "chord_scene_anno_path": "data/annotation/chord_scene/"
+    "chord_scene_anno_path": "data/annotation/chord_scene/",
+    "instrument_anno_path": "data/annotation/instrument/instrument_17",
+    "target_path": "data/target/"
 }

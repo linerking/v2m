@@ -191,7 +191,7 @@ class BaseGenModel(ABC):
         return self.generate_audio(tokens)
 
     def _generate_tokens(self, attributes: tp.List[ConditioningAttributes],
-                         prompt_tokens: tp.Optional[torch.Tensor], progress: bool = False) -> torch.Tensor:
+                         prompt_tokens: tp.Optional[torch.Tensor], progress: bool = False,cfg_conditions = None) -> torch.Tensor:
         """Generate discrete audio tokens given audio prompt and/or conditions.
 
         Args:
@@ -227,7 +227,7 @@ class BaseGenModel(ABC):
             with self.autocast:
                 gen_tokens = self.lm.generate(
                     prompt_tokens, attributes,
-                    callback=callback, max_gen_len=total_gen_len, **self.generation_params)
+                    callback=callback, max_gen_len=total_gen_len, **self.generation_params,cfg=cfg_conditions)
 
         else:
             assert self.extend_stride is not None, "Stride should be defined to generate beyond max_duration"
@@ -247,7 +247,7 @@ class BaseGenModel(ABC):
                 with self.autocast:
                     gen_tokens = self.lm.generate(
                         prompt_tokens, attributes,
-                        callback=callback, max_gen_len=max_gen_len, **self.generation_params)
+                        callback=callback, max_gen_len=max_gen_len, **self.generation_params,cfg=cfg_conditions)
                 if prompt_tokens is None:
                     all_tokens.append(gen_tokens)
                 else:

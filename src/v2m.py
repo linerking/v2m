@@ -4,7 +4,7 @@ import math
 import random
 
 class V2MTransformer(nn.Module):
-    def __init__(self, input_dim=768, output_dim=1536, nhead=1, num_decoder_layers=2, dim_feedforward=512, dropout=0.1):
+    def __init__(self, input_dim=768, output_dim=1536, nhead=4, num_decoder_layers=4, dim_feedforward=512, dropout=0.1):
         super(V2MTransformer, self).__init__()
         
         self.input_dim = input_dim

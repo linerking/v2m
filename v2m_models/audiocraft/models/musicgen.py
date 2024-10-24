@@ -52,9 +52,10 @@ class MusicGen(BaseGenModel):
         super().__init__(name, compression_model, lm, max_duration)
         self.set_generation_params(duration=15,cfg_coef=7)  # default duration
     def get_cfg_conditions(self, descriptions: tp.List[str], melody_wavs: MelodyType=None):
-        attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions=descriptions, prompt=None, melody_wavs=melody_wavs)
-        tokenized = self.lm.condition_provider.tokenize(attributes)
-        cfg_conditions = self.lm.condition_provider(tokenized)
+        with torch.no_grad():
+            attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions=descriptions, prompt=None, melody_wavs=melody_wavs)
+            tokenized = self.lm.condition_provider.tokenize(attributes)
+            cfg_conditions = self.lm.condition_provider(tokenized)
         return cfg_conditions
     @staticmethod
     def get_pretrained(name: str = 'facebook/musicgen-melody', device=None):
@@ -233,6 +234,9 @@ class MusicGen(BaseGenModel):
         Returns:
             torch.Tensor: Generated audio, of shape [B, C, T], T is defined by the generation params.
         """
+        print("musicgen")
+        print(cfg_conditions)
+        print("================================================================")
         total_gen_len = int(self.duration * self.frame_rate)
         max_prompt_len = int(min(self.duration, self.max_duration) * self.frame_rate)
         current_gen_offset: int = 0
@@ -259,7 +263,7 @@ class MusicGen(BaseGenModel):
             with self.autocast:
                 gen_tokens = self.lm.generate(
                     prompt_tokens, attributes,
-                    callback=callback, max_gen_len=total_gen_len, **self.generation_params)
+                    callback=callback, max_gen_len=total_gen_len, **self.generation_params,cfg=cfg_conditions)
 
         else:
             # now this gets a bit messier, we need to handle prompts,

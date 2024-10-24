@@ -466,9 +466,11 @@ class LMModel(StreamingModule):
                 )
                 if cfg is not None:
                     cfg_conditions[0]['description'] = cfg['description']
-
+                print(cfg)
                 print(1)
                 print(cfg_conditions[0]['description'][0].shape)
+                print("================================================================")
+                print(cfg_conditions[0]['description'][1].shape)
             else:
                 conditions = conditions + null_conditions
                 tokenized = self.condition_provider.tokenize(conditions)
