@@ -18,7 +18,7 @@ def load_and_select_scene(config):
 
     for video_name in tqdm(video_names, desc="Loading data"):
         # 检查视频名称是否大于700
-        if int(video_name) <= 700:
+        if int(video_name) > 700 or int(video_name) <= 600:
             continue  # 跳过大于700的视频，留作测试集
 
         fixed_token = np.load(os.path.join(config['visual_anno_path'], f"{video_name}_features.npy"), allow_pickle=True)
@@ -45,6 +45,7 @@ def load_and_select_scene(config):
                 emotion_tokens.append(EMOTION_TO_INDEX[top_emotion])
         
         variable_token = np.load(os.path.join(config['caption_feature_anno_path'], f"{video_name}.npy"), allow_pickle=True)
+        target_token = np.load(os.path.join(config['target_path'], f"{video_name}.npy"), allow_pickle=True)
 
         assert len(fixed_token) == len(motion_tokens) == len(emotion_tokens) == len(variable_token) == len(scene_times), \
             f"Inconsistent scene numbers for video {video_name}"
@@ -60,7 +61,8 @@ def load_and_select_scene(config):
                     'emotion_token': emotion_tokens[i],
                     'variable_token': variable_token[i],
                     'start_time': scene_times[i][0],
-                    'end_time': scene_times[i][1]
+                    'end_time': scene_times[i][1],
+                    'target_token': target_token[i]
                 })
 
     # 从所有符合条件的场景中随机选择一个
@@ -71,9 +73,9 @@ def load_and_select_scene(config):
         return None
         
     
-def load_model(model_path, device):
+def load_model(model_path, device, max_target_length):
     # 初始化模型（确保参数与训练时一致）
-    model = V2MTransformer(input_dim=768, output_dim=1536, nhead=4, num_decoder_layers=4, dim_feedforward=512, dropout=0.1)
+    model = V2MTransformer(max_target_length=max_target_length)
     
     # 加载模型权重
     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -85,10 +87,10 @@ def prepare_input(fixed_tokens, two_numbers, variable_tokens, device):
     # 将输入数据转换为张量并移动到指定设备
     fixed_tokens = torch.tensor(fixed_tokens, dtype=torch.float32).unsqueeze(0).to(device)  # 添加批次维度
     two_numbers = torch.tensor(two_numbers, dtype=torch.float32).unsqueeze(0).to(device)  # 添加批次维度
-    variable_tokens = torch.tensor(variable_tokens, dtype=torch.float32).unsqueeze(0).to(device)  # 添加批次维度
+    # variable_tokens = torch.tensor(variable_tokens, dtype=torch.float32).unsqueeze(0).to(device)  # 添加批次维度
     
     # 创建输入掩码
-    total_length = fixed_tokens.size(1) + 1 + variable_tokens.size(1)
+    total_length = fixed_tokens.size(1) + 1 #+ variable_tokens.size(1)
     input_mask = torch.ones(1, total_length, dtype=torch.bool).to(device)
     
     return fixed_tokens, two_numbers, variable_tokens, input_mask
@@ -107,10 +109,8 @@ def main():
     # 设置设备
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-
-    # 加载模型
-    model_path = "/home/yihan/v2m/best_model.pth"  # 替换为您的模型路径
-    model = load_model(model_path, device)
+    model_path = "/home/yihan/v2m/best_model1-3.pth"  # 替换为您的模型路径
+    model = load_model(model_path, device, 136)
     with open('config.json', 'r') as f:
         config = json.load(f)
     # 准备输入数据（这里只是示例，请根据实际情况修改）
@@ -123,11 +123,13 @@ def main():
     end_time = selected_scene['end_time']
     print(f"Selected scene: {video_name}, start_time: {start_time}, end_time: {end_time}")
     print(fixed_tokens.shape, variable_tokens.shape)
-    
+    print("==============================================================")
+    print(selected_scene['target_token'])
+    print("==============================================================")
     # 执行推理
     output = inference(model, fixed_tokens, two_numbers, variable_tokens, device)
     mask = torch.ones((output.shape[0], output.shape[1]), dtype=torch.float32, device=device)
-    
+
     cfg_condition = {
         'description': [
             output,  # 保持为 tensor

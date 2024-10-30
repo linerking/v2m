@@ -13,6 +13,8 @@ EMOTION_TO_INDEX = {
 }
 
 class V2MDataset(Dataset):
+    max_target_length = 0  # 类变量
+
     def __init__(self, config):
         self.config = config
         self.data = self.load_all_data()
@@ -54,11 +56,14 @@ class V2MDataset(Dataset):
 
             for i in range(len(fixed_token)):
                 if motion_tokens[i] != 0 and len(fixed_token[i]) == 10:
+                    target_i = target[i].squeeze(0)  # 去掉多余的维度
+                    target_length = target_i.shape[0]
+                    V2MDataset.max_target_length = max(V2MDataset.max_target_length, target_length)
                     data.append({
                         'fixed_token': fixed_token[i],
                         'two_numbers': [motion_tokens[i], emotion_tokens[i]],
                         'variable_token': variable_token[i],
-                        'target': target[i]
+                        'target': target_i
                     })
         
         return data
@@ -87,23 +92,23 @@ def collate_fn(batch):
     padded_variable_tokens = [torch.nn.functional.pad(vt, (0, 0, 0, max_variable_length - len(vt))) for vt in variable_tokens]
     variable_tokens = torch.stack(padded_variable_tokens)
     
-    # 添加 EOS 到目标序列，然后进行填充
-    eos_embedding = torch.ones(targets[0].shape[-1])  # EOS 是全1向量
-    targets_with_eos = [torch.cat([t.squeeze(0), eos_embedding.unsqueeze(0)], dim=0) for t in targets]
-    max_target_length = max(t.size(0) for t in targets_with_eos)
-    padded_targets = [torch.nn.functional.pad(t, (0, 0, 0, max_target_length - t.size(0))) for t in targets_with_eos]
-    targets_with_eos_padded = torch.stack(padded_targets)
+    # 使用全局 max_target_length 进行填充
+    global_max_target_length = V2MDataset.max_target_length+1
+    padded_targets = [torch.nn.functional.pad(t, (0, 0, 0, global_max_target_length - t.shape[0])) for t in targets]
+    targets_padded = torch.stack(padded_targets)
+
 
     # 创建输入掩码和目标掩码
-    input_masks, target_masks = create_mask(fixed_tokens, two_numbers, variable_tokens, targets_with_eos_padded)
+    input_masks, target_masks = create_mask(fixed_tokens, two_numbers, variable_tokens, targets_padded)
 
-    return fixed_tokens, two_numbers, variable_tokens, targets_with_eos_padded, input_masks, target_masks
+    return fixed_tokens, two_numbers, variable_tokens, targets_padded, input_masks, target_masks
 
 def create_mask(fixed_tokens, two_numbers, variable_tokens, targets):
     batch_size = fixed_tokens.size(0)
     fixed_length = fixed_tokens.size(1)
-    variable_length = variable_tokens.size(1)
-    total_input_length = fixed_length + 1 + variable_length  # 1 是为 two_numbers 预留的位置
+    # variable_length = variable_tokens.size(1)
+    #total_input_length = fixed_length + 1 + variable_length  # 1 是为 two_numbers 预留的位置
+    total_input_length = fixed_length + 1 
     target_length = targets.size(1)
 
     # 创建输入掩码
@@ -119,13 +124,14 @@ def create_mask(fixed_tokens, two_numbers, variable_tokens, targets):
     # 更新掩码以反映实际长度
     for i in range(batch_size):
         input_mask[i, fixed_length + 1 + variable_lengths[i]:] = False
-        target_mask[i, :target_lengths[i]] = True  # 包括 EOS token
+        target_mask[i, :target_lengths[i]+1] = True
 
     return input_mask, target_mask
 
 def load_data(config):
     dataset = V2MDataset(config)
     print("dataset created")
-    dataloader = DataLoader(dataset, batch_size=32, shuffle=True, collate_fn=collate_fn, num_workers=4)
+    print(f"Max target length: {V2MDataset.max_target_length}")
+    dataloader = DataLoader(dataset, batch_size=4, shuffle=True, collate_fn=collate_fn, num_workers=4)
     print("dataloader created")
-    return dataloader
+    return dataloader, V2MDataset.max_target_length
